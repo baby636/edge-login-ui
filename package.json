@@ -8,7 +8,8 @@
     "flow": "flow",
     "lint": "eslint .",
     "precommit": "node localizeLanguage.js && lint-staged && flow",
-    "prepare": "lerna exec yarn prepare"
+    "prepare": "yarn run snyk-protect && lerna exec yarn prepare",
+    "snyk-protect": "snyk-protect"
   },
   "husky": {
     "hooks": {
@@ -38,5 +39,9 @@
     "lerna": "^3.16.4",
     "lint-staged": "^10.5.3",
     "prettier": "^2.2.0"
+  },
+  "snyk": true,
+  "dependencies": {
+    "@snyk/protect": "latest"
   }
 }
