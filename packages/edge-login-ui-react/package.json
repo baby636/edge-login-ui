@@ -23,10 +23,11 @@
     "build": "npm-run-all build:lib build:demo",
     "build:demo": "rimraf dist && parcel build --public-url ./ src/demo/index.html",
     "build:lib": "rimraf lib && rollup -c",
-    "prepare": "npm-run-all build:lib",
+    "prepare": "yarn run snyk-protect && npm-run-all build:lib",
     "start": "npm-run-all -p start:*",
     "start:demo": "parcel ./src/demo/index.html --open",
-    "start:lib": "rollup -cw"
+    "start:lib": "rollup -cw",
+    "snyk-protect": "snyk-protect"
   },
   "dependencies": {
     "edge-core-js": "^0.13.5",
@@ -42,7 +43,8 @@
     "redux-logger": "~2.7.4",
     "redux-thunk": "~2.1.0",
     "sprintf-js": "^1.0.3",
-    "whatwg-fetch": "^2.0.3"
+    "whatwg-fetch": "^2.0.3",
+    "@snyk/protect": "latest"
   },
   "devDependencies": {
     "@babel/core": "^7.5.5",
@@ -71,5 +73,6 @@
   "resolutions": {
     "js-yaml": "3.13.1",
     "scrypt.js": "0.3.0"
-  }
+  },
+  "snyk": true
 }
