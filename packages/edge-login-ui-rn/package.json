@@ -24,7 +24,8 @@
   ],
   "main": "src/index.js",
   "scripts": {
-    "prepare": "echo nothing to do"
+    "prepare": "yarn run snyk-protect && echo nothing to do",
+    "snyk-protect": "snyk-protect"
   },
   "dependencies": {
     "cleaners": "^0.3.1",
@@ -44,7 +45,8 @@
     "redux": "~3.5.2",
     "redux-thunk": "~2.1.0",
     "sprintf-js": "^1.0.3",
-    "zxcvbn": "^4.4.2"
+    "zxcvbn": "^4.4.2",
+    "@snyk/protect": "latest"
   },
   "devDependencies": {
     "@react-native-community/art": "^1.0.2",
@@ -58,5 +60,6 @@
   },
   "resolutions": {
     "scrypt.js": "0.3.0"
-  }
+  },
+  "snyk": true
 }
